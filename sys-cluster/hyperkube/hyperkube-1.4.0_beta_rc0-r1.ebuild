@@ -31,6 +31,10 @@ src_compile() {
 }
 
 src_install() {
-		dobin "${WORKDIR}/${P}/bin/${PN}"
+	dobin "${WORKDIR}/${P}/bin/${PN}"
+	# no proxy for now, conflicts with net-libs/libproxy
+	for prog in apiserver controller-manager federation-apiserver federation-controller-manager kubectl kubelet scheduler; do
+		dosym ${PN} /usr/bin/${prog}
+	done
 }
 
