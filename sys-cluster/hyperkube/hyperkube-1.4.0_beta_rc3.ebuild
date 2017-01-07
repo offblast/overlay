@@ -1,1 +1,0 @@
-hyperkube-1.4.0_beta_rc0-r1.ebuild
